@@ -49,7 +49,7 @@ Supplementary Tables \ref{tab:computation-vs-communication-ordinary-least-square
 Effects of compute work on walltime latency highlight an important caveat in interpretation of this metric: sensitivity in measuring walltime latency is limited by the simulation update pace.
 If a message is dispatched while its recipient is busy, the soonest it can be received will be when that recipient completes the computational phase of its update.
 Then, a full computational update will elapse before touch count propagates in a return message.
-So, even approaching instantaneous message delivery, a lower floor of $\approx 1.5 \times$ simstep period should be expected for the walltime latency measure. 
+So, even approaching instantaneous message delivery, a lower floor of $\approx 1.5 \times$ simstep period should be expected for the walltime latency measure.
 It should be noted, however, that distinctions in latency below the simulation update rate largely lack practical significance with respect to simullation outcomes.
 
 % At \numprint{0}, \numprint{64}, and \numprint{4096} work units, walltime latency measures consistently at $\approx 1$ ms (means: \SI{710}{\micro\second}, \SI{794}{\micro\second}, \SI{906}{\micro\second} inlet / \SI{706}{\micro\second}, \SI{782}{\micro\second}, \SI{899}{\micro\second}; medians: \SI{623}{\micro\second}, \SI{639}{\micro\second}, \SI{742}{\micro\second} inlet / \SI{622}{\micro\second}, \SI{642}{\micro\second}, \SI{733}{\micro\second} outlet).
