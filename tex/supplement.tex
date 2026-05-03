@@ -1,0 +1,36 @@
+\input{lib/dissertationexclude.tex}
+\input{lib/dissertationonly.tex}
+
+\dissertationexclude{\section{Supplemental Materials}}
+
+\dissertationonly{
+% adapted from https://tex.stackexchange.com/a/61803
+\newenvironment{levelup}% Promote sectional commands
+  {\let\subparagraph\paragraph%
+   \let\paragraph\subsubsection%
+   \let\subsubsection\subsection%
+   \let\subsection\section%
+   %\let\section\relax%
+  }{}
+  \begin{levelup}
+}
+
+\input{tex/supplement/weak-scaling.tex}
+
+\clearpage
+
+\input{tex/supplement/computation-vs-communication.tex}
+
+\clearpage
+
+\input{tex/supplement/intranode-vs-internode.tex}
+
+\clearpage
+
+\input{tex/supplement/multithreading-vs-multiprocessing.tex}
+
+\clearpage
+
+\input{tex/supplement/with-lac-417-vs-sans-lac-417.tex}
+
+\dissertationonly{\end{levelup}}
