@@ -19,7 +19,7 @@ Finally, varying the ratio of computational work to communication, we found lowe
 
 In order for best-effort communication to succeed in facilitating scale-up, median quality of service must stabilize with increasing CPU count.
 Put another way, best-effort communication cannot succeed at scale if communication quality tends toward complete degradation.
-In Section \ref{sec:weak-scaling}, we used weak scaling experiments to test the effect of scale-up on quality of service at 16, 64, and 256 processes.
+In Section \ref{sec:weak-scaling}, we used weak scaling experiments to test the effect of scale-up on quality of service at 8, 64, and 256 processes.
 Under a lower communication-intensivity task parameterization, we found that all median quality of service metrics were stable when scaling from 64 to 256 processes.
 Under maximal communication intensivity, we found in one case that median simstep period degraded from around \SI{80}{\micro\second} to around \SI{85}{\micro\second}.
 In another case, median message delivery failure rate increased from around 7\% to around 9\%.
