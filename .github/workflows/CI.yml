@@ -11,7 +11,7 @@ jobs:
 
   tidy:
     name: Tidy
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v2
         with:
@@ -21,7 +21,7 @@ jobs:
 
   deploy:
     name: Deploy
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
