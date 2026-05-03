@@ -15,8 +15,8 @@ Indeed, best-effort mode 3 enables significantly better per-CPU update rates at 
 
 Likewise, shown in Figure \ref{fig:multiprocess_graph_coloring_solution_quality}, best-effort asynchronicity mode 3 yields significantly better graph-coloring results within the allotted time at 4, 16, and 64 processes ($p < 0.05$, non-overlapping 95\% confidence intervals).
 Interestingly, partial-synchronization modes 1 and 2 exhibited highly inconsistent solution quality performance at 16 and 64 process count benchmarks.
-Fixed-timepoint barrier sync (mode 2) had particularly poor performance performance at 64 processes (note the log-scale axis).
-We suspect this was caused by a race condition where workers would assign sync points to different fixed points different based on slightly different startup times (i.e., process 0 syncs at seconds 0, 1, 2... while process 1 syncs at seconds 1, 2, 3..).
+Fixed-timepoint barrier sync (mode 2) had particularly poor performance at 64 processes (note the log-scale axis).
+We suspect this was caused by a race condition where workers would assign sync points to different fixed points based on slightly different startup times (i.e., process 0 syncs at seconds 0, 1, 2... while process 1 syncs at seconds 1, 2, 3..).
 
 Figure \ref{fig:multiprocess_digital_evolution_update_rate} presents per-CPU algorithm update rate for the digital evolution benchmark at 1, 4, 16, and 64 processes.
 Relative performance fares well at high process counts under this relatively computation-heavy workload.

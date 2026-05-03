@@ -11,7 +11,7 @@ To address these questions, we performed weak scaling experiments on 16, 64, and
 To broaden the survey, we tested scaling with different numbers of processors allocated per node and different numbers of simulation elements assigned per processor.
 
 For the first variable, we tested scaling on allocations with each processor hosted on an independent node and allocations where each node hosted an average of four processors.
-This allowed us to examine how quality of service fared in homogeneous network conditions, where all communication between processes was inter-node, compared to heteregeneous conditions, where some inter-process communication was inter-node and some was intra-node.
+This allowed us to examine how quality of service fared in homogeneous network conditions, where all communication between processes was inter-node, compared to heterogeneous conditions, where some inter-process communication was inter-node and some was intra-node.
 
 For the second variable, we tested with \numprint{2048} simulation elements (``simels'') per processor (consistent with the benchmarking experiments performed in Sections \ref{sec:multiprocess-benchmarks} and \ref{sec:multithread-benchmarks}) and just one simulation element per processor.
 This allowed us to vary the amount of computational work performed per process.
@@ -67,7 +67,7 @@ Supplementary Tables \ref{tab:weak-scaling-latency-walltime-inlet-ns-regression-
 Simstep latency sits around 7 updates for runs with one simel per CPU and around 1.2 updates for runs with \numprint{2048} simels per CPU.
 For runs with one simel per CPU, outlier snapshot windows reach up to 50 updates under homogeneous allocations and up to almost 100 updates under heterogeneous allocations.
 The \numprint{2048} simels per CPU, one CPU per node, 256 process condition exhibited outliers of up to almost \numprint{8000} update simstep latency.
-Supplementary Figures \ref{fig:weak-scaling-distribution-latency-simsteps-inlet} and \ref{fig:weak-scaling-distribution-latency-simsteps-outlet}  show the distribution of simstep latencies observed across run conditions.
+Supplementary Figures \ref{fig:weak-scaling-distribution-latency-simsteps-inlet} and \ref{fig:weak-scaling-distribution-latency-simsteps-outlet} show the distribution of simstep latencies observed across run conditions.
 
 Over 16, 64, and 256 processes, mean simstep latency increased with process count only under 1 CPU per node, \numprint{2048} simel per CPU conditions.
 The same was true over just 64 to 256 processes.
@@ -102,7 +102,7 @@ However, outlier delivery failure rates of up to 0.7 were observed with 1 CPU pe
 Outlier delivery failure rates of up to 0.2 were observed with 4 CPUs per node, \numprint{2048} simels per CPU, and 256 processes.
 Supplementary Figure \ref{fig:weak-scaling-distribution-delivery-failure-rate} shows the distribution of delivery failure rates observed across run conditions.
 
-Mean delivery failure rate increased significantly between 64 and 256 processes with 1 CPU per node and \numprint{2048} simels per CPU as well as with 4 CPUs per node an 1 simel per CPU.
+Mean delivery failure rate increased significantly between 64 and 256 processes with 1 CPU per node and \numprint{2048} simels per CPU as well as with 4 CPUs per node and 1 simel per CPU.
 However, the median delivery failure rate only increased significantly with processor count with 4 CPUs per node and 1 simel per CPU.
 
 \input{fig/weak-scaling/regression-quantile/delivery-failure-rate.tex}

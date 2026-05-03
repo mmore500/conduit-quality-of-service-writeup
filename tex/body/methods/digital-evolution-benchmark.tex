@@ -14,7 +14,7 @@ We use Conduit-based messaging channels to manage all interactions between neigh
 Conduit models messaging channels as independent objects.
 However, support is provided for behind-the-scenes consolidation of communication along these channels between pairs of processes.
 Pooling joins together exactly one message per messaging channel to create a fixed-size consolidated message.
-Aggregation joins together arbitrarily many messages per channel  to  create a variable-size consolidated message.
+Aggregation joins together arbitrarily many messages per channel to create a variable-size consolidated message.
 
 During a computational update, each cell advances its internal state and pushes information about its current state to neighbor cells.
 Several independent messaging layers handle disparate aspects of cell-cell interaction, including
@@ -22,12 +22,12 @@ Several independent messaging layers handle disparate aspects of cell-cell inter
   \item Cell spawn messages, which contain variable-length genomes (seeded at 100 12-byte instructions with a hard cap of 1000 instructions). These are handled every 16 updates and use Conduit's built-in aggregation support for inter-process transfer.
   \item Resource transfer messages, consisting of a 4-byte float value. These are handled every update and use Conduit's built-in pooling support for inter-process transfer.
   \item Cell-cell communication messages, consisting of arbitrarily many 20-byte packets dispatched by genetic program execution. These are handled every 16 updates and use Conduit's built-in aggregation support for inter-process transfer.
-  \item Environmental state messages, consisting of a 216-byte struct of data. These are handled every 8 updates and use conduit's built-in pooling support for inter-process transfer.
+  \item Environmental state messages, consisting of a 216-byte struct of data. These are handled every 8 updates and use Conduit's built-in pooling support for inter-process transfer.
   \item Multicellular kin-group size detection messages, consisting of a 16-byte bitstring. These are handled every update and use Conduit's built-in pooling support for inter-process transfer.
 \end{itemize}
 
 Implementing all cell-cell interaction via Conduit-based messaging channels allows the simulation to be parallelized down to the granularity, potentially, of individual cells.
-These messaging channels allow cells to communicate using the same interface whether they are placed within the same thread, across different threads, or across diffferent processes.
+These messaging channels allow cells to communicate using the same interface whether they are placed within the same thread, across different threads, or across different processes.
 However, in practice, for this benchmarking we assign 3600 cells to each thread or process.
 Because all cell-cell interactions occur via Conduit-based messaging channels, logically-neighboring cells can interact fully whether or not they are located on the same thread or process (albeit with potential irregularities due to best-effort limitations).
 An alternate approach to evolving large populations might be an island model, where Conduit-based messaging channels would be used solely to exchange genomes between otherwise independent populations \citep{bennett1999building}.

@@ -1,7 +1,7 @@
 \section{Conclusion}
 
 The fundamental motivation for best-effort communication is efficient scalability.
-Our results confirm that best-effort communication can fulfill on this goal.
+Our results confirm that best-effort communication can deliver on this goal.
 
 We found that the best-effort approach significantly increases performance at high CPU count.
 This finding was consistent across the communication-intensive graph coloring benchmark and the computation-intensive digital evolution benchmark.
@@ -19,8 +19,8 @@ Finally, varying the ratio of computational work to communication, we found lowe
 
 In order for best-effort communication to succeed in facilitating scale-up, median quality of service must stabilize with increasing CPU count.
 Put another way, best-effort communication cannot succeed at scale if communication quality tends toward complete degradation.
-In Section \ref{sec:weak-scaling}, we used weak scaling experiments to test the effect of scale-up on quality of service at 8, 64, and 256 processes.
-Under a lower communication-intensivity task parameterization, we found that all median quality of service metrics were stable when scaling from 64 to 256 process.
+In Section \ref{sec:weak-scaling}, we used weak scaling experiments to test the effect of scale-up on quality of service at 16, 64, and 256 processes.
+Under a lower communication-intensivity task parameterization, we found that all median quality of service metrics were stable when scaling from 64 to 256 processes.
 Under maximal communication intensivity, we found in one case that median simstep period degraded from around \SI{80}{\micro\second} to around \SI{85}{\micro\second}.
 In another case, median message delivery failure rate increased from around 7\% to around 9\%.
 Such minor --- and, in most cases, nil --- degradation in median quality of service despite maximal communication intensivity bodes well for the viability of best-effort communication at scale.
@@ -31,7 +31,7 @@ Despite extreme quality of service degradation measured among that node and its 
 In effect, the best-effort approach successfully decoupled global performance from the worst performer.
 Such so-called ``straggler effects'' plague traditional approaches to large-scale high-performance computing \citep{aktacs2019straggler}, so avoiding them is a major boon.
 
-Development of the Conduit library stemmed from a practical need for an abstract, prepackaged best-effort commmunication interface to support our digital evolution research.
+Development of the Conduit library stemmed from a practical need for an abstract, prepackaged best-effort communication interface to support our digital evolution research.
 Because real-time effects are fundamentally application-dependent and arise without any explicit in-program specification (and therefore may be unanticipated) it is important to be able to perform such quality of service profiling case-by-case in applications of best-effort communication.
 The instrumentation used in these experiments is written as wrappers around the library's \texttt{Inlet} and \texttt{Outlet} classes that may be enabled via compile-time configuration switch.
 This makes data generation for quality of service analysis trivial to perform in any system built with the Conduit library.
