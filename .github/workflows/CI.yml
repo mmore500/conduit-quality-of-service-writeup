@@ -13,7 +13,7 @@ jobs:
     name: Tidy
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: 'recursive'
           fetch-depth: 0 # fetch all history for all branches and tags
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: 'recursive'
           fetch-depth: 0 # fetch all history for all branches and tags
@@ -43,7 +43,7 @@ jobs:
       #     branch: gh-pages # The branch the action should deploy to.
       #     folder: deploy # The folder the action should deploy.
       #     clean: true # Automatically remove deleted files from the deploy branch
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: PDF
           path: deploy/conduit-quality-of-service-writeup-draft.pdf
