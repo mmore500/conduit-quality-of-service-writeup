@@ -9,4 +9,5 @@ To set up locally,
 ```bash
 git clone --single-branch https://github.com/mmore500/conduit-quality-of-service-writeup.git
 cd conduit-quality-of-service-writeup
+./submodules.sh
 ```
