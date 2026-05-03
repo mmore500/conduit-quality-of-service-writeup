@@ -10,7 +10,7 @@ Figure \ref{fig:quality-of-service-metric-definitions} provides space-time diagr
 For the purposes of these metrics, we assume that simulations proceed in an iterative fashion with alternating compute and communication phases.
 For short, we refer to a single compute-communication cycle as a ``simstep.''
 We derive formulas for metrics in terms of independent observations preceding and succeeding a ``snapshot'' window, during which the simulation and any associated best-effort communication proceeds unimpeded.
-Snapshot observations are taken at one minute intervals over the course of each of our a replicate experiments.
+Snapshot observations are taken at one minute intervals over the course of each of our replicate experiments.
 The following section, \ref{sec:quality-of-service-experiments}, details the experimental apparatus used to generate quality of service metrics reported in this work.
 
 \subsubsection{Simstep Period} \label{sec:simstep-period-metric}
@@ -32,7 +32,7 @@ Figure \ref{fig:quality-of-service-metric-definitions-latency} compares a scenar
 
 To prevent interfering effects of imperfect clock synchronization, we estimate one-way wall-time latency from a round-trip measure.
 As part of our instrumentation, each simulation element maintains an independent zero-initialized ``touch counter'' for each neighbor simulation element it communicates with.
-Dispatched messages are bundled with the current value touch counter associated with the target element.
+Dispatched messages are bundled with the current value of the touch counter associated with the target element.
 Every message received sets the corresponding touch counter to $1 + \mathrm{bundled\,touch\,count}$.
 In this manner, the touch counter increments by two for each successful round trip completed.
 (Because simulation elements are arranged as a toroidal mesh in all experiments, interaction between simulation elements is always reciprocal.)
@@ -85,7 +85,7 @@ If messages all arrive in independent pull attempts, then clumpiness will be zer
 At the point where the pigeonhole principle applies (i.e., $\mathrm{num\,arriving\,messages} >= \mathrm{num\,pull\,attempts}$), clumpiness will also be zero so long as every pull attempt is laden.
 If all messages arrive during a single pull attempt, then clumpiness will approach 1.
 
-We formulate clumpiness as the compliment of steadiness.
+We formulate clumpiness as the complement of steadiness.
 (Reporting clumpiness provides a lower-is-better interpretation consistent with the rest of the quality of service metrics.)
 Steadiness, in turn, stems from three component statistics,
 \begin{align*}

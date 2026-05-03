@@ -23,7 +23,7 @@ Once added compute work supersedes the light compute work already associated wit
 
 Indeed, we found a significant positive relationship between both mean and median simstep period and added compute work (Supplementary Figures \ref{fig:computation-vs-communication-regression-simstep-period-inlet-ns} and \ref{fig:computation-vs-communication-regression-simstep-period-outlet-ns}).
 % At 0 units of added compute work, mean and median simstep period was 14.7 \SI{14.7}{\micro\second} (both inlet/outlet).
-At 0 units of added compute work, mean and median simstep period was 14.7 \SI{14.7}{\micro\second}.
+At 0 units of added compute work, mean and median simstep period was \SI{14.7}{\micro\second}.
 % At \numprint{16777216} units of added compute work, mean simstep period was 614ms inlet/608ms outlet and median simstep period was 506ms inlet/508ms outlet.
 At \numprint{16777216} units of added compute work, mean simstep period was 611ms and median simstep period was 507ms.
 This largest workload brushes against instrumentation limitations, accounting for more than half the one second snapshot window.
@@ -50,7 +50,7 @@ Effects of compute work on walltime latency highlight an important caveat in int
 If a message is dispatched while its recipient is busy, the soonest it can be received will be when that recipient completes the computational phase of its update.
 Then, a full computational update will elapse before touch count propagates in a return message.
 So, even approaching instantaneous message delivery, a lower floor of $\approx 1.5 \times$ simstep period should be expected for the walltime latency measure.
-It should be noted, however, that distinctions in latency below the simulation update rate largely lack practical significance with respect to simullation outcomes.
+It should be noted, however, that distinctions in latency below the simulation update rate largely lack practical significance with respect to simulation outcomes.
 
 % At \numprint{0}, \numprint{64}, and \numprint{4096} work units, walltime latency measures consistently at $\approx 1$ ms (means: \SI{710}{\micro\second}, \SI{794}{\micro\second}, \SI{906}{\micro\second} inlet / \SI{706}{\micro\second}, \SI{782}{\micro\second}, \SI{899}{\micro\second}; medians: \SI{623}{\micro\second}, \SI{639}{\micro\second}, \SI{742}{\micro\second} inlet / \SI{622}{\micro\second}, \SI{642}{\micro\second}, \SI{733}{\micro\second} outlet).
 For \numprint{0}, \numprint{64}, and \numprint{4096} work units, walltime latency measures $\approx 1$ ms (means: \SI{708}{\micro\second}, \SI{788}{\micro\second}, \SI{902}{\micro\second}; medians: \SI{622}{\micro\second}, \SI{640}{\micro\second}, \SI{738}{\micro\second}).

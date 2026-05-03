@@ -4,7 +4,7 @@
 
 Benchmarking experiments were performed on Michigan State University's High Performance Computing Center, a cluster of hundreds of heterogeneous x86 nodes linked with InfiniBand interconnects.
 For multithread experiments, benchmarks for each thread count were collected from the same node.
-For multiprocess experiments, each processes was assigned to a distinct node in order to ensure results were representative of performance in a distributed context.
+For multiprocess experiments, each process was assigned to a distinct node in order to ensure results were representative of performance in a distributed context.
 All multiprocess benchmarks were recorded from the same collection of nodes.
 Hostnames are recorded for each benchmark data point.
 For an exact accounting of hardware architectures used, these hostnames can be crossreferenced with a table included with the data that summarizes the cluster's node configurations.
@@ -25,7 +25,7 @@ Benchmarking experiments described in Section \ref{sec:methods-code-data-reprodu
 However, due to the high communication intensity of the graph coloring problem with just one simulation element per CPU, quality of service experiments required a larger buffer size of 64 to maintain runtime stability.
 In early work developing the Conduit library, we discovered that real-time messaging channels can enter a destabilizing positive feedback spiral when incoming messages take longer to handle (e.g., skip past or read) than sending messages.
 Under such conditions, when a process exchanging messages from a partner process experiences a delay it sends fewer messages to that partner process.
-Due to fewer incoming messages, the partner the partner process can update more rapidly, increasing incoming message load on the delayed process.
+Due to fewer incoming messages, the partner process can update more rapidly, increasing incoming message load on the delayed process.
 This effect can snowball the partnership intended for even, two-way message exchange into effectively a unilateral producer-consumer relationship where (potentially unbounded) work piles up on the consumer.
 To interrupt such a scenario, we use the bulk message pull call \verb|MPI_Testsome| to ensure fast message consumption under backlogged conditions.
 So, receiver workload remains closer to constant under high traffic situations (instead of having to pull messages down one-by-one).
