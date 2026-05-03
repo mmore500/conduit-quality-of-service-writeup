@@ -72,7 +72,7 @@ Regression analysis confirmed a significantly greater clumpiness under multithre
 
 \subsubsection{Delivery Failure Rate}
 
-We observed a higher proportion of deliveries failed for multiprocessing than for multithreading.
+We observed a higher proportion of deliveries fail for multiprocessing than for multithreading.
 (This is as expected; the multithread implementation directly wrote updates to a piece of shared memory, so there was no send buffer to backlog and induce message drops.)
 
 Multiprocessing exhibited both mean and median delivery failure rate of 0.38.
